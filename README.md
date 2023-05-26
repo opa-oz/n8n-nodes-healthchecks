@@ -1,4 +1,4 @@
-# n8n-nodes-healthchecks
+# n8n-nodes-healthchecksio
 
 
 This is an n8n community node. It lets you use [Healthchecks.io](https://healthchecks.io) in your n8n workflows.
@@ -20,7 +20,14 @@ nodes documentation.
 
 ![Operation image](https://raw.githubusercontent.com/opa-oz/n8n-nodes-healthchecks/master/docs/operation.png)
 
-Use simple "HealthchecksIO" operation to get you flag.
+Use simple "HealthchecksIO" operation to:
+- Ping
+- Log
+- Start
+- Fail
+
+your job.
+
 You can specify:
 
 - `UUID/Slug`

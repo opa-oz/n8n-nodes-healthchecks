@@ -1,7 +1,7 @@
 import { INodeType, INodeTypeDescription } from 'n8n-workflow';
 import { httpVerbFields, httpVerbOperations } from './HttpVerbDescription';
 
-export class HealthchecksIO implements INodeType {
+export class Healthchecksio implements INodeType {
 	description: INodeTypeDescription = {
 		displayName: 'Healthchecks.io',
 		name: 'healthchecksio',
