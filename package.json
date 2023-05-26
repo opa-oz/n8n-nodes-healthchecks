@@ -1,6 +1,6 @@
 {
   "name": "n8n-nodes-healthchecksio",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Healthchecks.io caller package",
   "keywords": [
     "n8n-community-node-package"
