@@ -33,7 +33,7 @@
       "dist/credentials/HealthchecksIOApi.credentials.js"
     ],
     "nodes": [
-      "dist/nodes/HealthchecksIO/HealthchecksIO.node.js"
+      "dist/nodes/HealthchecksIO/Healthchecksio.node.js"
     ]
   },
   "devDependencies": {
