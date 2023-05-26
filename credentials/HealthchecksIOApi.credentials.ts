@@ -7,8 +7,8 @@ import {
 
 export class HealthchecksIOApi implements ICredentialType {
 	name = 'healthchecksIOApi';
-	displayName = 'Healthchecksio API';
-	icon = "file:logo.svg";
+	displayName = 'HealthchecksIO API';
+	icon = "file:logo.png";
 	documentationUrl = 'https://healthchecks.io/docs/';
 	properties: INodeProperties[] = [
 		{
@@ -31,7 +31,7 @@ export class HealthchecksIOApi implements ICredentialType {
 	test: ICredentialTestRequest = {
 		request: {
 			baseURL: '={{$credentials?.domain}}',
-			url: '/ping',
+			url: '/',
 		},
 	};
 }

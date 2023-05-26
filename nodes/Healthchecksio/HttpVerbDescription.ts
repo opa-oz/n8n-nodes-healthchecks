@@ -1,4 +1,4 @@
-import { INodeProperties } from 'n8n-workflow';
+import {INodeProperties} from 'n8n-workflow';
 
 // When the resource `ping` is selected, this `operation` parameter will be shown.
 export const httpVerbOperations: INodeProperties[] = [
@@ -10,13 +10,13 @@ export const httpVerbOperations: INodeProperties[] = [
 
 		displayOptions: {
 			show: {
-				resource: ['ping'],
+				resource: ['by_uuid'],
 			},
 		},
 		options: [
 			{
-				name: 'GET',
-				value: 'get',
+				name: 'Ping',
+				value: 'ping',
 				action: 'Ping',
 				routing: {
 					request: {
@@ -25,23 +25,102 @@ export const httpVerbOperations: INodeProperties[] = [
 					},
 				},
 			},
+			{
+				name: 'Start',
+				value: 'start',
+				action: 'Start',
+				routing: {
+					request: {
+						method: 'GET',
+						url: '=/ping/{{$parameter.uuid}}/start',
+					},
+				},
+			},
+			{
+				name: 'Fail',
+				value: 'fail',
+				action: 'Fail',
+				routing: {
+					request: {
+						method: 'GET',
+						url: '=/ping/{{$parameter.uuid}}/fail',
+					},
+				},
+			},
+			{
+				name: 'Log',
+				value: 'log',
+				action: 'Log',
+				routing: {
+					request: {
+						method: 'GET',
+						url: '=/ping/{{$parameter.uuid}}/log',
+					},
+				},
+			},
 		],
-		default: 'get',
+		default: 'ping',
 	},
 ];
 
-// Here we define what to show when the `get` operation is selected.
-// We do that by adding `operation: ["get"]` to `displayOptions.show`
-const getOperation: INodeProperties[] = [
+const pingOperation: INodeProperties[] = [
 	{
 		displayName: 'UUID',
 		name: 'uuid',
 		default: 'uuid.v4()',
-		description: 'Https?://.../ping/&lt;UUID&gt;',
+		description: '/ping/&lt;UUID&gt;',
 		displayOptions: {
 			show: {
-				resource: ['ping'],
-				operation: ['get'],
+				resource: ['by_uuid'],
+				operation: ['ping'],
+			},
+		},
+		type: 'string',
+		required: true,
+	},
+];
+const startOperation: INodeProperties[] = [
+	{
+		displayName: 'UUID',
+		name: 'uuid',
+		default: 'uuid.v4()',
+		description: '/ping/&lt;UUID&gt;/start',
+		displayOptions: {
+			show: {
+				resource: ['by_uuid'],
+				operation: ['start'],
+			},
+		},
+		type: 'string',
+		required: true,
+	},
+];
+const failOperation: INodeProperties[] = [
+	{
+		displayName: 'UUID',
+		name: 'uuid',
+		default: 'uuid.v4()',
+		description: '/ping/&lt;UUID&gt;/fail',
+		displayOptions: {
+			show: {
+				resource: ['by_uuid'],
+				operation: ['fail'],
+			},
+		},
+		type: 'string',
+		required: true,
+	},
+];
+const logOperation: INodeProperties[] = [
+	{
+		displayName: 'UUID',
+		name: 'uuid',
+		default: 'uuid.v4()',
+		description: '/ping/&lt;UUID&gt;/log',
+		displayOptions: {
+			show: {
+				resource: ['by_uuid'],
+				operation: ['log'],
 			},
 		},
 		type: 'string',
@@ -54,5 +133,8 @@ export const httpVerbFields: INodeProperties[] = [
 	/* -------------------------------------------------------------------------- */
 	/*                                httpVerb:get                                */
 	/* -------------------------------------------------------------------------- */
-	...getOperation,
+	...pingOperation,
+	...startOperation,
+	...failOperation,
+	...logOperation
 ];

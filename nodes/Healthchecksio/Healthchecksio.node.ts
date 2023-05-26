@@ -5,7 +5,8 @@ export class HealthchecksIO implements INodeType {
 	description: INodeTypeDescription = {
 		displayName: 'Healthchecks.io',
 		name: 'healthchecksio',
-		icon: 'file:logo.svg',
+		// eslint-disable-next-line n8n-nodes-base/node-class-description-icon-not-svg
+		icon: 'file:logo.png',
 		group: ['transform'],
 		version: 1,
 		subtitle: '={{$parameter["operation"] + ": " + $parameter["resource"]}}',
@@ -37,11 +38,11 @@ export class HealthchecksIO implements INodeType {
 				noDataExpression: true,
 				options: [
 					{
-						name: 'Operation',
-						value: 'ping',
+						name: 'By UUID',
+						value: 'by_uuid',
 					},
 				],
-				default: 'ping',
+				default: 'by_uuid',
 			},
 
 			...httpVerbOperations,
